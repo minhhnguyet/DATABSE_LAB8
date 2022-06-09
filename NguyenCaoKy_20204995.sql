@@ -98,3 +98,6 @@
 -- create procedure giathuehopdong (@value int) as select a.* , b.giathue  from hopdong as a inner join ( select MaNha,Giathue from nhachothue where giathue >= @value ) as b on a.MaNha = b.MaNha
 -- exec giathuehopdong 5
 
+2.
+-- create procedure procedure2 (@fee int) as select a.MaKH,HoTen,SDT,CoQuan,fee from KhachHang as a inner join (select c.MaKH , sum(giathue) as fee from HopDong as c inner join (select * from NhaChoThue ) as b on c.MaNha = b.MaNha group by MaKH) as d on a.MaKH = d.MaKH and d.fee >= @fee order by fee asc
+-- exec procedure2 8
