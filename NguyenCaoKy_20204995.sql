@@ -94,3 +94,7 @@
 
 
 -- d
+1.
+-- create procedure giathuehopdong (@value int) as select a.* , b.giathue  from hopdong as a inner join ( select MaNha,Giathue from nhachothue where giathue >= @value ) as b on a.MaNha = b.MaNha
+-- exec giathuehopdong 5
+
